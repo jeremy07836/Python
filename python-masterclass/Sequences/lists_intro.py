@@ -4,12 +4,19 @@ computer_parts = ["computer",
                   "mouse",
                   "mouse mat"
                   ]
+print(computer_parts)
 
-for part in computer_parts:
-    print(part)
+# computer_parts[3] = "trackball"
+print(computer_parts[3:])
+computer_parts[3:] = ["trackball"]
+print(computer_parts)
 
-print()
-print(computer_parts[2])
+
+# for part in computer_parts:
+#     print(part)
+#
+# print()
+# print(computer_parts[2])
 
 # data = [
 #     "Andromeda - Shrub",
