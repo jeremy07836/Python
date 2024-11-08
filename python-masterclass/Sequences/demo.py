@@ -37,3 +37,26 @@ albums = [
      ]
      ),
 ]
+
+print("Choose your album:")
+for index, (name, artist, year, songs) in enumerate(albums):
+    print("{}: {}"
+          .format(index + 1, name))
+
+album_number = int(input())
+if album_number <= len(albums):
+    print(len(albums))
+    album_number -= 1
+
+    print("Choose your song:")
+    for index, song in enumerate(albums[album_number][3]):
+        print("{}: {}".format(index + 1, song))
+
+    album_song = int(input())
+    if album_number <= len(albums[album_number][3]):
+        album_song -= 1
+        print(albums[album_number][3][album_song][1])
+    else:
+        print("Number is incorrect")
+else:
+    print("Number is incorrect")
