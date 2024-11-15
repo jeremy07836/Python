@@ -38,6 +38,11 @@ albums = [
      ),
 ]
 
+# for index, value in enumerate(albums):
+#     title, artist, year, songs = value
+#     print("{}: {}".format(index, value))
+#     print(title, artist, year, songs)
+
 print("Choose your album:")
 for index, (name, artist, year, songs) in enumerate(albums):
     print("{}: {}"

@@ -1,19 +1,5 @@
 import random
 
-
-def get_integer(prompt, upper_limit):
-    while True:
-        temp = input(prompt)
-        if temp.isnumeric():
-            if 0 < int(temp) <= upper_limit:
-                return int(temp)
-            else:
-                print("This is not a valid number between 1 and {}"
-                      .format(upper_limit))
-        else:
-            print("This is not a number")
-
-
 highest = 10
 answer = random.randint(1, highest)
 print(answer)
@@ -22,8 +8,7 @@ print("Please guess the number between 1 and {}: ".format(highest))
 guess = 0
 
 while guess != answer:
-    guess = get_integer(": ", highest)
-
+    guess = int(input())
     if guess == 0:
         print("Quitting")
         break
