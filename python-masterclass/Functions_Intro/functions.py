@@ -32,8 +32,8 @@ def palindrome_sentence(sentence):
 # else:
 #     print("{} is not palindrome".format(word))
 
-input_sentence = input("Please enter a palindrome sentence: ")
-if palindrome_sentence(input_sentence):
-    print("\'{}\' is a palindrome".format(input_sentence))
-else:
-    print("\'{}\' is not palindrome".format(input_sentence))
+# input_sentence = input("Please enter a palindrome sentence: ")
+# if palindrome_sentence(input_sentence):
+#     print("\'{}\' is a palindrome".format(input_sentence))
+# else:
+#     print("\'{}\' is not palindrome".format(input_sentence))
