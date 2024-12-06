@@ -1,10 +1,10 @@
-def banner_text(text=" ", screen_width=80):
+def banner_text(text: str = " ", screen_width: int = 80) -> None:
     """
     Prints the text centered with two * characters at the beginning and end
 
     :param text: The text that is printed; throws an error if longer than width - 4
     :param screen_width: The specified width of the string
-    :return: None
+    :raise ValueError: if the length is too long
     """
     if len(text) > screen_width - 4:
         raise ValueError("String: {0}\nis larger than specified width {1}"
