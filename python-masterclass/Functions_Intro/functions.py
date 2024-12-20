@@ -35,6 +35,19 @@ def fibonacci(n: int) -> int:
     return result
 
 
+def sum_numbers(*args: float) -> float:
+    """
+    To add and return all the numbers entered
+    :param args: a list of numbers
+    :return: the total of all args value as a float
+    """
+    # total = sum(args)
+    total = 0
+    for x in args:
+        total += x
+    return total
+
+
 # --- Multiply test ---
 # answer = multiply(10.5, 4)
 # print(answer)
@@ -57,12 +70,18 @@ def fibonacci(n: int) -> int:
 # else:
 #     print("\'{}\' is not palindrome".format(input_sentence))
 
-fib = fibonacci(15)
-print(fib)
-fib = fibonacci(0)
-print(fib)
-fib = fibonacci(-1)
-print(fib)
+# fib = fibonacci(15)
+# print(fib)
+# fib = fibonacci(0)
+# print(fib)
+# fib = fibonacci(-1)
+# print(fib)
+#
+# for i in range(36):
+#     print(i, fibonacci(i))
 
-for i in range(36):
-    print(i, fibonacci(i))
+# t1 = sum_numbers(1, 2, 3)
+# t2 = sum_numbers(8, 20, 2)
+# t3 = sum_numbers(12.5, 3.147, 98.1)
+# t4 = sum_numbers(1.1, 2.2, 5.5)
+# print(t1, t2, t3, t4)

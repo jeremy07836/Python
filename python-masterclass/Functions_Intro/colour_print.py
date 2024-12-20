@@ -19,24 +19,29 @@ REVERSE = '\u001b[7m'
 # input("Press enter to end:")
 
 
-def colour_print(text: str, effect: str) -> None:
+def colour_print(text: str, *effects: str) -> None:
     """
     Print `text` using ANSI sequences to change text's colour, etc
 
     :param text: The text to print
-    :param effect: The ANSI sequences to effect the text
+    :param effects: The ANSI sequences to effect the text
     """
-    output_string = "{0}{1}{2}".format(effect, text, RESET)
+    effect_string = "".join(effects)
+    output_string = "{0}{1}{2}".format(effect_string, text, RESET)
     print(output_string)
 
 
 colorama.init()
 colour_print("Hello, Red", RED)
+colour_print("Hello, Red", RED, BOLD)
 print("Default terminal colour")
 colour_print("Blue", BLUE)
+colour_print("Blue", BLUE, REVERSE)
+colour_print("Blue", BLUE, REVERSE, UNDERLINE)
 colour_print("Yellow", YELLOW)
+colour_print("Yellow", YELLOW, BOLD)
 colour_print("Bold", BOLD)
 colour_print("Underlined", UNDERLINE)
-colour_print("Reversed", REVERSE)
+colour_print("Reversed", REVERSE, UNDERLINE)
 colour_print("Black", BLACK)
 colorama.deinit()
