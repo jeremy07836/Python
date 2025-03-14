@@ -39,16 +39,18 @@ restricted_items = {
 print("Please choose your mode of travel:")
 for key, value in travel_mode.items():
     print(f"{key}: {value}")
-    22
+
 mode = "-"
 while mode not in travel_mode:
     mode = input("> ")
 
 if mode == "2":
     # travelling by plane, remove restricted items
-    for restricted_item in restricted_items:
-        # items.remove(restricted_item)     # errors out
-        items.discard(restricted_item)
+    # for restricted_item in restricted_items:
+    #     # items.remove(restricted_item)     # errors out
+    #     items.discard(restricted_item)
+    # items -= restricted_items
+    items.difference_update(restricted_items)
 
 # print the packing list
 print("You need to pack:")
