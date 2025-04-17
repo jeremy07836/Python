@@ -19,15 +19,28 @@ with open(input_filename) as country_file:
         }
         # print(country_dict)
         countries[country.casefold()] = country_dict
+        # code_lookup[code.casefold()] = country
+        countries[code.casefold()] = country_dict
 
 # print(countries)
+# name, capital, country_code, cc3, dcode, timezone, curr
+for key, country in countries.items():
+    # to skip the
+    if len(key) == 2:
+        continue
+    if country['capital'] == '':
+        print(f"{key} has no capital")
+        print(f"\tCountry code: {country['country_code']}")
+        for field, value in country.items():
+            if value == '':
+                print(f"\t{field} is blank")
 
 while True:
     chosen_country = input('Please enter the name of a country: ')
     country_key = chosen_country.casefold()
     if country_key in countries:
         country_data = countries[country_key]
-        print(f"The capital of {chosen_country} is {country_data['capital']}")
+        print(f"The capital of {country_data['name']} is {country_data['capital']}")
     elif chosen_country == 'exit' or chosen_country == 'quit':
         break
     else:
