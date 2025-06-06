@@ -1,6 +1,7 @@
 input_filename = 'country_info.txt'
 countries = {}
 
+
 with open(input_filename) as country_file:
     print(country_file.readline())
     for row in country_file:
