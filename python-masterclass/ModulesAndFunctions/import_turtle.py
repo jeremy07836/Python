@@ -8,7 +8,8 @@
 # turtle.done()
 
 import turtle
-import math
+# import math
+from math import radians, cos
 
 
 def square(length: int) -> None:
@@ -23,15 +24,30 @@ def encircle_square(length: int) -> None:
     then encloses it in a circle
 """
     square(length)
-    angle = math.radians(45)
-    radius = length * math.cos(angle)
+    # angle = math.radians(45)
+    angle = radians(45)
+    # radius = length * math.cos(angle)
+    radius = length * cos(angle)
     turtle.right(135)
     turtle.circle(radius)
+    turtle.left(135)
+    print(f'Inside function, namespace is: {dir()}')
+    print(f'locals: {locals()}')
 
 
-encircle_square(100)
+
+# encircle_square(100)
+# turtle.speed('fast')
 # for s in range(72):
-#     square(120)
+#     # square(120)
+#     encircle_square(120)
 #     turtle.left(5)
+#
+# turtle.done()
 
-turtle.done()
+# print(f'Main locals: {locals()}')
+print(dir())
+g = globals()
+print(g['square'])
+
+print(dir(__builtins__))
