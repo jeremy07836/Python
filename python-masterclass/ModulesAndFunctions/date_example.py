@@ -1,7 +1,7 @@
 import datetime
-import locale
+# import locale
 
-locale.setlocale(locale.LC_ALL, 'fr_FR.utf-8')
+# locale.setlocale(locale.LC_ALL, 'fr_FR.utf-8')
 
 start = datetime.date(2022, 2, 4)
 print(start)
@@ -10,13 +10,17 @@ print(start)
 pretty_start = start.strftime('%a %d %b, %y')
 print(pretty_start)
 
-year = start.year
-month = start.month
-day = start.day
+duration = datetime.timedelta(15, hours=48)
+end = start + duration
+print(end)
+print(duration)
 
-print(f'The {year} winter olympics started on day {day} of month {month}')
+d1 = datetime.timedelta(hours=2)
+d2 = datetime.timedelta(minutes=120)
+d3 = datetime.timedelta(seconds=7200)
+print(d1, d2, d3, sep=', ')
+print(repr(d1), repr(d2), repr(d3), sep=', ')
 
-today = datetime.date.today()
-print(f'Today\'s date: {today}')
-print(f'Today is {today.strftime('%A')}')
-print(f'Today is day {today.weekday()} of the week')
+difference = end - start
+print(repr(difference), repr(duration), sep=', ')
+print(difference == duration)
