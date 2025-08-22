@@ -1,8 +1,6 @@
 import random
 import tkinter
 
-mainWindow = tkinter.Tk()
-
 
 def load_images(card_images):
     suits = ['heart', 'club', 'diamond', 'spade']
@@ -34,12 +32,34 @@ def load_images(card_images):
 
 def deal_card(frame):
     # pop the next card off the top of the deck
-    next_card = deck.pop()
-    print(next_card)
+    number_of_cards = len(deck)
+    if number_of_cards > 0:
+        next_card = deck.pop(0)
+    else:
+        next_card = None
+    print(next_card, number_of_cards)
     # add the image to a Label and display the Label
     tkinter.Label(frame, image=next_card[1], relief='raised').pack(side='left')
     # now return the card's face value
     return next_card
+
+
+def score_hand(hand):
+    # Calculate the total score of all cards in the list
+    # Only one ace can have the value 11, and this will be reduced to 1 if the hand would bust
+    score = 0
+    ace = False
+    for next_card in hand:
+        card_value = next_card[0]
+        if card_value == 1 and not ace:
+            ace = True
+            card_value = 11
+        score += card_value
+        # if we would bust, check if there is an ace and subtract 10
+        if score > 21 and ace:
+            ace = False
+            score -= 10
+    return score
 
 
 def deal_dealer():
@@ -47,12 +67,36 @@ def deal_dealer():
 
 
 def deal_player():
-    deal_card(player_card_frame)
+    player_hand.append(deal_card(player_card_frame))
+    player_score = score_hand(player_hand)
+
+    player_score_label.set(player_score)
+    if player_score > 21:
+        result_text.set("Dealer Wins!")
+    # global player_score
+    # global player_ace
+    # card_value = deal_card(player_card_frame)[0]
+    # if card_value == 1 and not player_ace:
+    #     card_value = 11
+    #     player_ace = True
+    # player_score += card_value
+    # # if we would bust, check if there is an ace then subtract 10
+    # if player_score > 21 and player_ace:
+    #     player_score -= 10
+    #     player_ace = False
+    # player_score_label.set(player_score)
+    # if player_score > 21:
+    #     result_text.set("Dealer wins")
+    # if player_score == 21:
+    #     result_text.set("Player wins")
+    # print(locals())
 
 
+mainWindow = tkinter.Tk()
 # Set up the screen and frames for the dealer and player
 mainWindow.title("Black Jack")
 mainWindow.geometry("640x480")
+mainWindow.configure(background="green")
 
 result_text = tkinter.StringVar()
 result = tkinter.Label(mainWindow, textvariable=result_text)
@@ -62,6 +106,7 @@ card_frame = tkinter.Frame(mainWindow, relief='sunken', borderwidth=1, backgroun
 card_frame.grid(row=1, column=0, sticky='ew', columnspan=3, rowspan=2)
 
 dealer_score_label = tkinter.IntVar()
+
 tkinter.Label(card_frame, text="Dealer", background="green", fg="white").grid(row=0, column=0)
 tkinter.Label(card_frame, textvariable=dealer_score_label, background="green", fg="white").grid(row=1, column=0)
 # embedded frame to hold the card images
