@@ -1,3 +1,6 @@
+# https://svg-cards.sourceforge.net/
+# Download and export the png cards
+# in to a folder named cards in the Blackjack project folder
 import random
 import tkinter
 
