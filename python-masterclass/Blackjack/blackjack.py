@@ -30,13 +30,16 @@ def load_images(card_images):
             image = tkinter.PhotoImage(file=name)
             card_images.append((10, image,))
 
-def deal_card(frame):
+def _deal_card(frame):
     # pop the next card off the top of the deck
+    global deck
     number_of_cards = len(deck)
     if number_of_cards > 0:
         next_card = deck.pop(0)
     else:
-        next_card = None
+        shuffle()
+        next_card = deck.pop(0)
+
     print(next_card, number_of_cards)
     # add the image to a Label and display the Label
     tkinter.Label(frame, image=next_card[1], relief='raised').pack(side='left')
@@ -63,36 +66,87 @@ def score_hand(hand):
 
 
 def deal_dealer():
-    deal_card(dealer_card_frame)
+    dealer_hand.append(_deal_card(dealer_card_frame))
+    dealer_score = score_hand(dealer_hand)
+    dealer_score_label.set(dealer_score)
+    while 0 < dealer_score < 17:
+        dealer_hand.append(_deal_card(dealer_card_frame))
+        dealer_score = score_hand(dealer_hand)
+        dealer_score_label.set(dealer_score)
+
+    player_score = score_hand(player_hand)
+    if player_score > 21:
+        result_text.set("Dealer Wins!")
+    elif dealer_score > 21 or dealer_score < player_score:
+        result_text.set("Player Wins!")
+    elif dealer_score > player_score:
+        result_text.set("Dealer Wins!")
+    else:
+        result_text.set("Draw!")
+
+
 
 
 def deal_player():
-    player_hand.append(deal_card(player_card_frame))
+    player_hand.append(_deal_card(player_card_frame))
     player_score = score_hand(player_hand)
 
     player_score_label.set(player_score)
     if player_score > 21:
         result_text.set("Dealer Wins!")
-    # global player_score
-    # global player_ace
-    # card_value = deal_card(player_card_frame)[0]
-    # if card_value == 1 and not player_ace:
-    #     card_value = 11
-    #     player_ace = True
-    # player_score += card_value
-    # # if we would bust, check if there is an ace then subtract 10
-    # if player_score > 21 and player_ace:
-    #     player_score -= 10
-    #     player_ace = False
-    # player_score_label.set(player_score)
-    # if player_score > 21:
-    #     result_text.set("Dealer wins")
-    # if player_score == 21:
-    #     result_text.set("Player wins")
-    # print(locals())
+    if player_score == 21:
+        deal_dealer()
+
+
+def start_game():
+    global dealer_hand
+    global player_hand
+    dealer_hand = []
+    player_hand = []
+
+
+def initial_deal():
+    deal_player()
+    dealer_hand.append(_deal_card(dealer_card_frame))
+    dealer_score = score_hand(dealer_hand)
+    dealer_score_label.set(dealer_score)
+    deal_player()
+
+
+def new_game():
+    global dealer_card_frame
+    global player_card_frame
+    #embedded frame to hold the dealer's card images
+    dealer_card_frame.destroy()
+    dealer_card_frame = tkinter.Frame(card_frame, background="green")
+    dealer_card_frame.grid(row=0, column=1, sticky='ew', rowspan=2)
+    #embedded frame to hold the player's card images
+    player_card_frame.destroy()
+    player_card_frame = tkinter.Frame(card_frame, background="green")
+    player_card_frame.grid(row=2, column=1, sticky='ew', rowspan=2)
+    start_game()
+    result_text.set("")
+
+    initial_deal()
+
+
+def shuffle(deck_number=1):
+    global deck
+    deck = []
+    for d in range(deck_number):
+        deck += list(cards)
+    random.shuffle(deck)
+    print(deck)
+    print(len(deck))
+
+
+def play():
+    initial_deal()
+    mainWindow.mainloop()
 
 
 mainWindow = tkinter.Tk()
+
 # Set up the screen and frames for the dealer and player
 mainWindow.title("Black Jack")
 mainWindow.geometry("640x480")
@@ -129,16 +183,26 @@ dealer_button.grid(row=0, column=0)
 player_button = tkinter.Button(button_frame, text="Player", command=deal_player)
 player_button.grid(row=0, column=1)
 
+new_game_button = tkinter.Button(button_frame, text="New Game", command=new_game)
+new_game_button.grid(row=0, column=2)
+
+shuffle_button = tkinter.Button(button_frame, text="Shuffle", command=shuffle)
+shuffle_button.grid(row=0, column=3)
+
 # load cards
 cards = []
 load_images(cards)
-print(cards)
 # Create a new deck of cards and shuffle them
-deck = list(cards)
-random.shuffle(deck)
+deck = []
+shuffle(3)
 
-# Create teh list to store the dealer's and player's hand
+# deck = list(cards)
+# random.shuffle(deck)
+
+# Create the list to store the dealer's and player's hand
 dealer_hand = []
 player_hand = []
+start_game()
 
-mainWindow.mainloop()
+if __name__ == "__main__":
+    play()
