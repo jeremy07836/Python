@@ -92,6 +92,19 @@ Aerosmith	Live! Bootleg	1978	S.O.S.
 Aerosmith	Live! Bootleg	1978	I Ain't Got You
 Aerosmith	Live! Bootleg	1978	Mother Popcorn,Draw The Line
 Aerosmith	Live! Bootleg	1978	Train Kept A Rollin'
+ZZ Top	Tres Hombres	1973	Waitin' For The Bus
+ZZ Top	Tres Hombres	1973	Jesus Just Left Chicago
+ZZ Top	Tres Hombres	1973	Beer Drinkers & Hell Raisers
+ZZ Top	Tres Hombres	1973	Master Of Sparks
+ZZ Top	Tres Hombres	1973	Hot, Blue And Righteous
+ZZ Top	Tres Hombres	1973	Move Me On Down The Line
+ZZ Top	Tres Hombres	1973	Precious And Grace
+ZZ Top	Tres Hombres	1973	La Grange
+ZZ Top	Tres Hombres	1973	Sheik
+ZZ Top	Tres Hombres	1973	Have You Heard
+ZZ Top	Tres Hombres	1973	Waitin' For The Bus (Live) (Bonus)
+ZZ Top	Tres Hombres	1973	Jesus Just Left Chicago (Live) (Bonus)
+ZZ Top	Tres Hombres	1973	La Grange (Live) (Bonus)
 Aerosmith	Night In The Ruts	1979	No Surprize
 Aerosmith	Night In The Ruts	1979	Chiquita
 Aerosmith	Night In The Ruts	1979	Remember (Walking In The Sand)
@@ -621,19 +634,6 @@ ZZ Top	Rio Grande Mud	1972	Bar-B-Q
 ZZ Top	Rio Grande Mud	1972	Sure Got Cold After The Rain Fell
 ZZ Top	Rio Grande Mud	1972	Whiskey'n Mama
 ZZ Top	Rio Grande Mud	1972	Down Brownie
-ZZ Top	Tres Hombres	1973	Waitin' For The Bus
-ZZ Top	Tres Hombres	1973	Jesus Just Left Chicago
-ZZ Top	Tres Hombres	1973	Beer Drinkers & Hell Raisers
-ZZ Top	Tres Hombres	1973	Master Of Sparks
-ZZ Top	Tres Hombres	1973	Hot, Blue And Righteous
-ZZ Top	Tres Hombres	1973	Move Me On Down The Line
-ZZ Top	Tres Hombres	1973	Precious And Grace
-ZZ Top	Tres Hombres	1973	La Grange
-ZZ Top	Tres Hombres	1973	Sheik
-ZZ Top	Tres Hombres	1973	Have You Heard
-ZZ Top	Tres Hombres	1973	Waitin' For The Bus (Live) (Bonus)
-ZZ Top	Tres Hombres	1973	Jesus Just Left Chicago (Live) (Bonus)
-ZZ Top	Tres Hombres	1973	La Grange (Live) (Bonus)
 ZZ Top	Degüello	1979	I Thank You
 ZZ Top	Degüello	1979	She Loves My Automobile
 ZZ Top	Degüello	1979	I'm Bad I'm Nationwide
