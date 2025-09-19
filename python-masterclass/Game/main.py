@@ -1,32 +1,13 @@
 from player import Player
+from enemy import Enemy, Troll
 
 jeremy = Player("Jeremy")
 
-print(jeremy.name)
+troll1 = Troll()
+print(troll1)
 
-print(jeremy)
-jeremy.lives -= 1
+troll2 = Troll("Ug", 18, 1)
+print("Another troll - {}".format(troll2))
 
-print(jeremy)
-jeremy.lives -= 1
-
-print(jeremy)
-jeremy.lives -= 1
-
-print(jeremy.lives)
-jeremy.lives = -11
-print(jeremy.lives)
-jeremy.lives -= 11
-print(jeremy.lives)
-
-jeremy.level = 5
-print(jeremy.name, jeremy.level, jeremy.score)
-
-jeremy.level -= 3
-print(jeremy.name, jeremy.level, jeremy.score)
-
-jeremy.level -= 5
-print(jeremy.name, jeremy.level, jeremy.score)
-
-jeremy.score = 500
-print(jeremy.score)
+troll3 = Troll("Urg", 23)
+print(troll3)
