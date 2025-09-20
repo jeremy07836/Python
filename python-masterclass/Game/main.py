@@ -1,13 +1,30 @@
 from player import Player
-from enemy import Enemy, Troll
+from enemy import Enemy, Troll, Vampyre
 
 jeremy = Player("Jeremy")
 
-troll1 = Troll()
-print(troll1)
+ugly_troll = Troll("Pug")
+ugly_troll.take_damage(5)
+ugly_troll.take_damage(50)
+ugly_troll.take_damage(50)
+print(ugly_troll)
 
-troll2 = Troll("Ug", 18, 1)
-print("Another troll - {}".format(troll2))
+another_troll = Troll("Ug")
+print("Another troll - {}".format(another_troll))
 
-troll3 = Troll("Urg", 23)
-print(troll3)
+brother = Troll("Urg")
+print(brother)
+
+ugly_troll.grunt()
+another_troll.grunt()
+brother.grunt()
+
+vamp1 = Vampyre("Vlad")
+vamp1.take_damage(13)
+vamp2 = Vampyre("Tom")
+print(vamp1)
+print(vamp2)
+
+while vamp1.alive:
+    vamp1.take_damage(1)
+    print(vamp1)
