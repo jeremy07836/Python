@@ -1,15 +1,24 @@
 from player import Player
 from enemy import Enemy, Troll, Vampyre, VampyreKing
 
-jeremy = Player("Jeremy")
+a = 3
+b = "jeremy"
+c = 1, 2, 3
 
-vamp_king = VampyreKing("Dracula")
-vamp_king.take_damage(5)
-vamp_king.take_damage(4)
-vamp_king.take_damage(3)
-vamp_king.take_damage(3)
-vamp_king.take_damage(20)
-print(vamp_king)
+print(a)
+print(b)
+print(c)
+
+
+# jeremy = Player("Jeremy")
+#
+# vamp_king = VampyreKing("Dracula")
+# vamp_king.take_damage(5)
+# vamp_king.take_damage(4)
+# vamp_king.take_damage(3)
+# vamp_king.take_damage(3)
+# vamp_king.take_damage(20)
+# print(vamp_king)
 
 # ugly_troll = Troll("Pug")
 # ugly_troll.take_damage(5)
