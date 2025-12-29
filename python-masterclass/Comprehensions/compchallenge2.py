@@ -39,8 +39,37 @@ for index, location in enumerate(locations.values()):
     for loc_exit in loc_exits:
         print("\t", loc_exit)
 
-
+# The below solution is incorrect because its suppose to check for
+#   the values of x in the list of exits
+#   and not the exits of x
+#   filtering out the 0 exit in index 5 was a sign of this
+# Original solution (incorrect)
 forest_exits = [fx for fx in exit_comp[5].values()]
 print(forest_exits)
 loc_comp = [(index, loc) for (index, loc) in enumerate(locations.values()) if index in forest_exits and index != 0]
-print(loc_comp)
+print("\nIncorrect Solution\n", loc_comp, "\n")
+
+loc = 5
+# loc = 1
+forest = [locations[ex] for ex in exits if loc in exits[ex].values()]
+print("Solution from video")
+print(forest)
+
+forest = []
+for ex in exits:
+    if loc in exits[ex].values():
+        forest.append(locations[ex])
+print(forest, "\n")
+
+# for loc in sorted(locations):
+#     exits_to = [(ex, locations[ex]) for ex in exits if loc in exits[ex].values()]
+#     print("Locations leading to {}".format(loc), end='\t')
+#     print(exits_to)
+
+for loc in sorted(locations):
+    exits_to = []
+    for ex in exits:
+        if loc in exits[ex].values():
+            exits_to.append((ex, locations[ex]))
+    print("Locations leading to {}".format(loc), end='\t')
+    print(exits_to)

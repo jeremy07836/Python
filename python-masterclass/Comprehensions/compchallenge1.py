@@ -15,9 +15,18 @@ for x in range(1, 31):
     print(fizzbuzz)
 
 print()
-range31 = range(1, 31)
-fbcomp = ["fizzbuzz" if fb % 15 == 0 else fb
-                and "fizz" if fb % 3 == 0 else fb
-                and "buzz" if fb % 5 == 0 else fb
-                for fb in range31]
+# While correct all the 'else fb' is redundant
+# fbcomp = ["fizzbuzz" if fb % 15 == 0 else fb
+#             and "fizz" if fb % 3 == 0 else fb
+#             and "buzz" if fb % 5 == 0 else fb
+#             for fb in range(1, 31)]
+
+fbcomp = ["fizzbuzz" if fb % 15 == 0
+            else "fizz" if fb % 3 == 0
+            else "buzz" if fb % 5 == 0
+            else str(fb)
+            for fb in range(1, 31)]
+
 print(fbcomp)
+for buzz in fbcomp:
+    print(buzz.center(12, '-'))
